@@ -1,0 +1,21 @@
+{
+  "name": "hospital_web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "front_end": "npm start --prefix ../front_end",
+    "dev": "concurrently \"npm run server\" \"npm run front_end\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  }
+}
