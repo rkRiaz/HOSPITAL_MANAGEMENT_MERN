@@ -1,0 +1,37 @@
+.addPatient{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.addPatient__body{
+    margin: 20px;
+    padding: 20px;
+}
+.addPatient__bodyFormFirstRow{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+@media screen and (max-width: 768px){
+    .addPatient__bodyFormFirstRow{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    
+}
+.addPatient__bodyFormFirstRowLeft,
+.addPatient__bodyFormFirstRowRight
+{   
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.addPatient__bodyFormSecondRow{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+}
+.addPatient__bodyFormSecondRowCheckBox{
+    margin-top: 20px;
+}

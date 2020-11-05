@@ -1,0 +1,102 @@
+a{
+    text-decoration: none;
+}
+.detailsPatient{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.detailsPatient__firstRow,
+.detailsPatient__secondRow {
+    margin: 20px;
+}
+.detailsPatient__firstRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+@media screen and (max-width: 768px) {
+    .detailsPatient__firstRow {
+        grid-template-columns: 1fr;
+    }
+    .detailsPatient__firstRowBodyRight{
+        margin-top: 20px;
+    }
+}
+.detailsPatient__firstRowBodyLeft,
+.detailsPatient__firstRowBodyRight
+{
+    padding: 20px;
+}
+.detailsPatient__firstRowBodyLeftTable{
+    border: 1px solid rgb(240, 236, 236);
+    /* min-width: 700px; */
+    margin-top: 20px;
+    /* overflow-x: scroll; */
+}
+.detailsPatient__firstRowBodyLeftTable tr {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.detailsPatient__firstRowBodyLeftTable tr:nth-of-type(odd) {
+    background-color: #f3f2f8;
+}
+.detailsPatient__firstRowBodyLeftTable tr td:nth-child(1) {
+    font-weight: bold;
+    padding-right: 10px;
+}
+.detailsPatient__firstRowBodyLeftTable td {
+    padding: 10px 0;
+    margin: 0 15px;
+}
+
+.detailsPatient__firstRowBodyRightTable{
+    border: 1px solid rgb(240, 236, 236);
+    /* min-width: 700px; */
+    margin-top: 20px;
+    /* overflow-x: scroll; */
+}
+.detailsPatient__firstRowBodyRightTable tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.detailsPatient__firstRowBodyRightTable tr:nth-of-type(odd) {
+    background-color: #f3f2f8;
+}
+.detailsPatient__firstRowBodyRightTable tr:nth-child(1) {
+    background-color: #cfebdc !important;  
+    font-weight: bold;
+    padding-right: 10px;
+}
+.detailsPatient__firstRowBodyRightTable td {
+    padding: 15px 0;
+    margin: 0 15px;
+}
+
+.detailsPatient__secondRow{
+    padding: 20px;
+}
+.detailsPatient__secondRowTable{
+    min-width: 900px;
+    min-height: 300px;
+    border: 1px solid rgb(240, 236, 236);
+    margin-top: 20px;
+    overflow: scroll;
+}
+.detailsPatient__secondRowTable::-webkit-scrollbar{
+    display: none;
+}
+.detailsPatient__secondRowTable tr:nth-child(1){
+    font-weight: bold;
+    background-color: #cfebdc !important;  
+}
+.detailsPatient__secondRowTable tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: left;
+}
+.detailsPatient__secondRowTable td{
+    padding: 10px 30px;
+}
+.detailsPatient__secondRowTable tr:nth-of-type(odd) {
+    background-color: #f3f2f8;
+}

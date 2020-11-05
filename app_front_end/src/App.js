@@ -1,31 +1,50 @@
 import React from 'react';
 import "./App.css";
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Home from './components/Home'
-import Admission from "./components/Admission";
-import Bill from "./components/Bill";
-import DashBoard from "./components/DashBoard";
-import Invoice from "./components/Invoice";
-import PathLab from "./components/PathLab";
-import PatientSearch from "./components/PatientSearch";
-import Prescription from "./components/Prescription";
+import SideBar from './components/SideBar'
+import TopBar from './components/TopBar'
+import Dashboard from './components/Dashboard'
+import AddDoctor from './components/doctors/AddDoctor'
+import AllDoctors from './components/doctors/AllDoctors';
+import EditDoctor from './components/doctors/EditDoctor';
+import DetailsDoctor from './components/doctors/DetailsDoctor';
+import AddPatient from './components/patients/AddPatient';
+import AllPatients from './components/patients/AllPatients';
+import EditPatient from './components/patients/EditPatient';
+import DetailsPatient from './components/patients/DetailsPatient';
+
 
 
 function App() {
   return (
     <div className="app">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/admission" component={Admission} />
-          <Route exact path="/bill" component={Bill} />
-          <Route exact path="/dashBoard" component={DashBoard} />
-          <Route exact path="/invoice" component={Invoice} />
-          <Route exact path="/pathLab" component={PathLab} />
-          <Route exact path="/patientSearch" component={PatientSearch} />
-          <Route exact path="/prescription" component={Prescription} />
-        </Switch>
-      </BrowserRouter>
+      <div className="app__body">
+        <BrowserRouter>
+              <SideBar/>
+              <div className="app__bodyRight">
+                <TopBar/>
+                <Switch>
+                    <Route exact path="/" component={Dashboard}/>
+                    <Route exact path="/addDoctor" component={AddDoctor}/>
+                    <Route exact path="/allDoctors" component={AllDoctors}/>
+                    <Route exact path="/editDoctor/:doctorId" component={EditDoctor}/>
+                    <Route exact path="/detailsDoctor/:doctorId" component={DetailsDoctor}/>
+
+                    <Route exact path="/addPatient" component={AddPatient}/>
+                    <Route exact path="/allPatients" component={AllPatients}/>
+                    <Route exact path="/editPatient/:patientId" component={EditPatient}/>
+                    <Route exact path="/detailsPatient/:patientId" component={DetailsPatient}/>
+
+
+
+
+
+
+
+                </Switch>
+              </div>
+          </BrowserRouter>
+      </div>
     </div>
   );
 }

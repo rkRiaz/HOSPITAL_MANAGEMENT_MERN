@@ -1,0 +1,12 @@
+.allPatients{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.allPatients__body{
+    margin: 20px;
+    padding: 20px;
+}
+.allPatients__bodyTable{
+    /* height: 600px; */
+    /* overflow: scroll; */
+}

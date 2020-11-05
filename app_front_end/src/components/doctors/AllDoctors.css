@@ -1,0 +1,12 @@
+.allDoctors{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.allDoctors__body{
+    margin: 20px;
+    padding: 20px;
+}
+.allDoctors__bodyTable{
+    /* height: 600px; */
+    /* overflow: scroll; */
+}
