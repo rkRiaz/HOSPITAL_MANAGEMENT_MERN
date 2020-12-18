@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "server": "nodemon server.js",
-    "front_end": "npm start --prefix ../app_front_end",
+    "front_end": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run front_end\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix app_front_end && npm run build --prefix app_front_end",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
