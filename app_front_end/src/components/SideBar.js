@@ -128,8 +128,8 @@ function SideBar() {
                 <div className={isShowDoctorsDrawer ? "sidebar__itemDrawer sidebar__itemDrawerShow" : "sidebar__itemDrawer"}>
                     <Link to="/addDoctor">Add Doctor</Link>
                     <Link to="/allDoctors">All Doctors</Link>
-                    <Link to="#">Doctor Details</Link>
-                    <Link to="#">Edit Doctor</Link>
+                    <Link to="/detailsDoctor/01">Doctor Details</Link>
+                    <Link to="/editDoctor/01">Edit Doctor</Link>
                 </div>
             </div>
 
@@ -143,8 +143,8 @@ function SideBar() {
                 <div className={isShowPatientsDrawer ? "sidebar__itemDrawer sidebar__itemDrawerShow" : "sidebar__itemDrawer"}>
                     <Link to="/addPatient">Add Patient</Link>
                     <Link to="/allPatients">All Patients</Link>
-                    <Link to="#">Patient Details</Link>
-                    <Link to="#">Edit Patient</Link>
+                    <Link to="/detailsPatient/01">Patient Details</Link>
+                    <Link to="/editPatient/01">Edit Patient</Link>
                 </div>
             </div>
 
@@ -156,10 +156,10 @@ function SideBar() {
                     <span> {isShowAppointmentsDrawer ? <ExpandLessOutlined/> : <ExpandMoreOutlined/>} </span>
                 </div>
                 <div className={isShowAppointmentsDrawer ? "sidebar__itemDrawer sidebar__itemDrawerShow" : "sidebar__itemDrawer"}>
-                    <Link to="#">Add Appointment</Link>
-                    <Link to="#">All Appointments</Link>
-                    <Link to="#">Appointment Details</Link>
-                    <Link to="#">Edit Appointment</Link>
+                    <Link to="/addAppoinment">Add Appointment</Link>
+                    <Link to="/allAppoinments">All Appointments</Link>
+                    <Link to="/detailsAppoinment/01">Appointment Details</Link>
+                    <Link to="/editAppoinment/01">Edit Appointment</Link>
                 </div>
             </div>
 
@@ -171,9 +171,10 @@ function SideBar() {
                     <span> {isShowRoomAllotmentsDrawer ? <ExpandLessOutlined/> : <ExpandMoreOutlined/>} </span>
                 </div>
                 <div className={isShowRoomAllotmentsDrawer ? "sidebar__itemDrawer sidebar__itemDrawerShow" : "sidebar__itemDrawer"}>
-                    <Link to="#">Add Room Allotment</Link>
-                    <Link to="#">All Rooms</Link>
-                    <Link to="#">Edit Room Allotment</Link>
+                    <Link to="/addRoomAllotment">Add Room Allotment</Link>
+                    <Link to="/allRooms">All Rooms</Link>
+                    <Link to="/addRoom">Add Room</Link>
+                    <Link to="/editRoomAllotment/01">Edit Room Allotment</Link>
                 </div>
             </div>
 

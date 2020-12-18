@@ -1,0 +1,35 @@
+.detailsAppoinment{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.detailsAppoinment__body{
+    margin: 20px;
+    padding: 20px;
+}
+
+.detailsAppoinment__bodyTableScroll{
+    overflow: scroll;
+}
+.detailsAppoinment__bodyTableScroll::-webkit-scrollbar{
+    display: none;
+}
+.detailsAppoinment__bodyTable{
+    border: 1px solid rgb(240, 236, 236);
+    min-width: 400px;
+    max-height: 280px;
+}
+.detailsAppoinment__bodyTable tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.detailsAppoinment__bodyTable tr:nth-of-type(odd) {
+    background-color: #f3f2f8;
+}
+.detailsAppoinment__bodyTable tr td:nth-child(1) {
+    font-weight: bold;
+    padding-right: 10px;
+}
+.detailsAppoinment__bodyTable td {
+    padding: 10px 0;
+    margin: 0 15px;
+}

@@ -53,12 +53,12 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Doctor Id' },
+  { id: 'appoimentId', numeric: false, disablePadding: true, label: 'Appoinment Id' },
+  { id: 'patientId', numeric: true, disablePadding: false, label: 'Patient Id' },
+  { id: 'token', numeric: true, disablePadding: false, label: 'Token' },
   { id: 'doctorName', numeric: true, disablePadding: false, label: 'Doctor Name' },
-  { id: 'phone', numeric: true, disablePadding: false, label: 'Phone' },
-  { id: 'specialization', numeric: true, disablePadding: false, label: 'Specialization' },
-  { id: 'experience', numeric: true, disablePadding: false, label: 'Experience(in years)' },
-  { id: 'availability', numeric: true, disablePadding: false, label: 'Availability' },
+  { id: 'problem', numeric: true, disablePadding: false, label: 'Problem' },
+  { id: 'status', numeric: true, disablePadding: false, label: 'Status' },
 ];
 
 function EnhancedTableHead(props) {
@@ -152,7 +152,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Doctors
+          Appoinments
         </Typography>
       )}
         {numSelected > 0 ? (
@@ -212,13 +212,13 @@ export default function EnhancedTable() {
   const [alert, setAlert] = React.useState(false)
   const componentRef = React.useRef();
 
-  function createData(name, doctorName, phone, specialization, experience, availability) {
-    return { name, doctorName, phone, specialization, experience, availability };
+  function createData(appoimentId, patientId, token, doctorName, problem, status) {
+    return { appoimentId, patientId, token, doctorName, problem, status };
   }
   const rows = [
-    createData(1, 'Ahmed Ullah', '+88012458965', 'Medicine', 5, <Chip size='small' label="available" color='primary' />),
-    createData(2, 'Zahid Ullah', '+88012458965', 'Medicine', 6, <Chip size='small' label="unavailable" color='secondary' />),
-    createData(3, 'Shakir Ullah', '+88012458965', 'Medicine', 3, <Chip size='small' label="onleave" color='default' />),
+    createData('AA01', 'PA01', 'TA01', 'John Doe', 'Cold Fever', <Chip size='small' label="active" color='primary' />),
+    createData('AA02', 'PA02', 'TA01', 'John Doe', 'Cold Fever', <Chip size='small' label="pending" color='default' />),
+    createData('AA03', 'PA03', 'TA01', 'John Doe', 'Cold Fever', <Chip size='small' label="active" color='primary' />),
   ];
 
   const printAction = useReactToPrint({
@@ -238,19 +238,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
+      const newSelecteds = rows.map((n) => n.appoimentId);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, appoimentId) => {
+    const selectedIndex = selected.indexOf(appoimentId);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, appoimentId);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -278,7 +278,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = (appoimentId) => selected.indexOf(appoimentId) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
@@ -317,17 +317,17 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.appoimentId);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, row.appoimentId)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.appoimentId}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
@@ -337,13 +337,13 @@ export default function EnhancedTable() {
                         />
                       </TableCell>
                       <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
+                        {row.appoimentId}
                       </TableCell>
+                      <TableCell align="right">{row.patientId}</TableCell>
+                      <TableCell align="right">{row.token}</TableCell>
                       <TableCell align="right">{row.doctorName}</TableCell>
-                      <TableCell align="right">{row.phone}</TableCell>
-                      <TableCell align="right">{row.specialization}</TableCell>
-                      <TableCell align="right">{row.experience}</TableCell>
-                      <TableCell align="right">{row.availability}</TableCell>
+                      <TableCell align="right">{row.problem}</TableCell>
+                      <TableCell align="right">{row.status}</TableCell>
 
                     </TableRow>
                   );
@@ -380,7 +380,7 @@ export default function EnhancedTable() {
     <div className="megatable__ActionButtons" style={{marginTop: 20}}>
     {
         selected.length != 0 ?
-      <Link to={`detailsDoctor/${selected[0]}`} style={{textDecoration: 'none'}}>
+      <Link to={`detailsAppoinment/${selected[0]}`} style={{textDecoration: 'none'}}>
           <Button
             size={window.innerWidth < 768 ? 'small' : 'medium'}
             variant="contained"
@@ -402,7 +402,7 @@ export default function EnhancedTable() {
       }
       {
         selected.length != 0 ?
-          <Link to={`editDoctor/${selected[0]}`} style={{textDecoration: 'none'}}>
+          <Link to={`editAppoinment/${selected[0]}`} style={{textDecoration: 'none'}}>
             <Button
               size={window.innerWidth < 768 ? 'small' : 'medium'}
               style={{marginLeft: 10}}
@@ -426,7 +426,7 @@ export default function EnhancedTable() {
       }
       {
       selected.length != 0 ?
-        <Link to={`deleteDoctor/${selected[0]}`} style={{textDecoration: 'none'}}>
+        <Link to={`deleteAppoiment/${selected[0]}`} style={{textDecoration: 'none'}}>
           <Button
             size={window.innerWidth < 768 ? 'small' : 'medium'}
             style={{marginLeft: 10}}

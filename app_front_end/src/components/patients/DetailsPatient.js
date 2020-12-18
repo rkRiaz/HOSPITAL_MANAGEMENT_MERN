@@ -23,6 +23,7 @@ function DetailsPatient() {
     content: () => patientPaymentRef.current
     })
 
+
     return (
         <div className="detailsPatient">
             <Headline headline="Patient Details" title='Patient Details'/>
@@ -32,7 +33,8 @@ function DetailsPatient() {
                     <div style={{color: "#E57498", paddingBottom: 10, borderBottom: '1px solid rgb(240, 236, 236)'}}>
                         <Typography variant="h5">Patient Details</Typography>
                     </div>
-                    <div ref={patientDetailsRef} className="detailsPatient__firstRowBodyLeftTable">
+                    <div className="detailsPatient__firstRowBodyLeftTableScroll">
+                        <table ref={patientDetailsRef} className="detailsPatient__firstRowBodyLeftTable">
                         <tr>
                             <td>Name</td>
                             <td>Amin Zahid</td>
@@ -60,8 +62,9 @@ function DetailsPatient() {
                             <td>address</td>
                             <td>299/272 Kaptan Bazar, Cumilla. Bangladesh</td>
                         </tr>
+                        </table>
                     </div>
-                    <ButtonGroup style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
+                    <ButtonGroup size={window.innerWidth < 768 ? 'small' : 'medium'} style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
                         <Button onClick={patientDetailsPrintAction}><PrintOutlined/>&nbsp;PRINT</Button>
                         <Button><PictureAsPdfOutlined/>&nbsp;PDF</Button>
                         <Button><GetAppOutlined/>&nbsp;CSV</Button>
@@ -82,7 +85,8 @@ function DetailsPatient() {
                     <div style={{color: "#E57498", paddingBottom: 10, borderBottom: '1px solid rgb(240, 236, 236)'}}>
                         <Typography variant="h5">Patient Visits</Typography>
                     </div>
-                    <div ref={patientVisitsRef} className="detailsPatient__firstRowBodyRightTable">
+                    <div className="detailsPatient__firstRowBodyRightTableScroll">
+                       <table ref={patientVisitsRef} className="detailsPatient__firstRowBodyRightTable">
                         <tr>
                             <td>Doctor Name</td>
                             <td>Cost</td>
@@ -100,27 +104,29 @@ function DetailsPatient() {
                             <td>3000 tk</td>
                             <td>20-03-2020</td>
                             <td>Fever</td>
-                        </tr>        <tr>
+                        </tr>        
+                        <tr>
                             <td>Ahamed Karim</td>
                             <td>3000 tk</td>
                             <td>20-03-2020</td>
                             <td>Injury</td>
-                        </tr>  
+                        </tr>
+                       </table> 
                     </div>
-                    <ButtonGroup style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
+                    <ButtonGroup size={window.innerWidth < 768 ? 'small' : 'medium'} style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
                         <Button onClick={patientVisitsPrintAction}><PrintOutlined/>&nbsp;PRINT</Button>
                         <Button><PictureAsPdfOutlined/>&nbsp;PDF</Button>
                         <Button><GetAppOutlined/>&nbsp;CSV</Button>
                     </ButtonGroup>
                 </Card>
-                
-
             </div>
+
             <Card className="detailsPatient__secondRow">
                 <div style={{color: "#E57498", paddingBottom: 10, borderBottom: '1px solid rgb(240, 236, 236)'}}>
                     <Typography variant="h5">Patient Payment Transactions</Typography>
                 </div>
-                <div ref={patientPaymentRef} className="detailsPatient__secondRowTable">
+                <div className="detailsPatient__secondRowTableScroll">
+                  <table ref={patientPaymentRef} className="detailsPatient__secondRowTable"> 
                     <tr>
                         <td>Date</td>
                         <td>Cost</td>
@@ -177,25 +183,10 @@ function DetailsPatient() {
                         </td>
                         <td><Chip size='small' label={'cancelled'}color="secondary" /></td>
                     </tr>
-                    <tr>
-                        <td>20-10-2020</td>
-                        <td>5000 tk</td>
-                        <td>15%</td>
-                        <td>Cash</td>
-                        <td> 
-                            <Button
-                            variant="outlined"
-                            color="primary"
-                            startIcon={<GetAppOutlined />}
-                            >
-                            Invoice
-                            </Button>
-                        </td>
-                        <td><Chip size='small' label={'completed'}color="primary" /></td>
-                    </tr>
+                  </table>
                 </div>
                 <ButtonGroup style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
-                    <Button onClick={patientPaymentPrintAction}><PrintOutlined/>&nbsp;PRINT</Button>
+                    <Button size={window.innerWidth < 768 ? 'small' : 'medium'} onClick={patientPaymentPrintAction}><PrintOutlined/>&nbsp;PRINT</Button>
                     <Button><PictureAsPdfOutlined/>&nbsp;PDF</Button>
                     <Button><GetAppOutlined/>&nbsp;CSV</Button>
                 </ButtonGroup>

@@ -1,17 +1,16 @@
-.allPatients{
+.allAppoinments{
     background: #edf1ef;
     min-height: 100vh;
 }
-.allPatients__body{
+.allAppoinments__body{
     display: grid;
     grid-template-columns: 1fr;
     margin: 20px;
     padding: 20px;
 }
-.allPatients__bodyTable{
-    /* height: 600px; */
+.allAppoinments__bodyTable{
     overflow: scroll;
 }
-.allPatients__bodyTable::-webkit-scrollbar{
+.allAppoinments__bodyTable::-webkit-scrollbar{
     display: none;
 }

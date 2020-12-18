@@ -95,7 +95,8 @@
 
 @media screen and (max-width: 1024px) {
     .sidebar {
-        /* position: absolute; */
+        /* z-index: 1;
+        position: absolute; */
         width: 80px;
         display: flex;
         flex-direction: column;

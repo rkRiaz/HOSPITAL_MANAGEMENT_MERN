@@ -64,32 +64,45 @@ function Dashboard() {
                         <div style={{color: "#E57498", padding: 20, borderBottom: '1px solid rgb(240, 236, 236)'}}>
                             <Typography variant="h5">Doctors Availability</Typography>
                         </div>
-                        <div className="dashboard__bodyFourthRowTable">
+                        <div className="dashboard__bodyFourthRowTableScroll">
+                           <table className="dashboard__bodyFourthRowTable">
                             <tr>
-                                <td>Doctor</td>
-                                <td>Speciality</td>
-                                <td>Status</td>
-                            </tr>
-                            <tr>
-                                <td>Rajesh</td>
-                                <td>HertSpecialist</td>
-                                <td><Chip size='small' label={'unavailable'}color="secondary" /></td>
-                            </tr>
-                            <tr>
-                                <td>Rajesh</td>
-                                <td>HertSpecialist</td>
-                                <td><Chip size='small' label={'onleave'}color="" /></td>
-                            </tr>
-                            <tr>
-                                <td>Rajesh</td>
-                                <td>HertSpecialist</td>
-                                <td> <Chip size='small' label={'available'}color="primary" /></td>
-                            </tr>
-                            <tr>
-                                <td>Rajesh</td>
-                                <td>HertSpecialist</td>
-                                <td> <Chip size='small' label={'available'}color="primary" /></td>
-                            </tr>
+                                    <td>Doctor</td>
+                                    <td>Speciality</td>
+                                    <td>Status</td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh</td>
+                                    <td>HertSpecialist</td>
+                                    <td><Chip size='small' label={'unavailable'}color="secondary" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh</td>
+                                    <td>HertSpecialist</td>
+                                    <td><Chip size='small' label={'onleave'}color="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh</td>
+                                    <td>HertSpecialist</td>
+                                    <td> <Chip size='small' label={'available'}color="primary" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh</td>
+                                    <td>HertSpecialist</td>
+                                    <td> <Chip size='small' label={'available'}color="primary" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh</td>
+                                    <td>HertSpecialist</td>
+                                    <td> <Chip size='small' label={'available'}color="primary" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh</td>
+                                    <td>HertSpecialist</td>
+                                    <td> <Chip size='small' label={'available'}color="primary" /></td>
+                                </tr>
+                         
+                           </table>
                         </div>
                     </Card>
                 </div>

@@ -53,12 +53,13 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Doctor Id' },
+  { id: 'roomNo', numeric: false, disablePadding: true, label: 'Room No' },
+  { id: 'roomType', numeric: true, disablePadding: false, label: 'Room Type' },
+  { id: 'patientName', numeric: true, disablePadding: false, label: 'Patient Name' },
   { id: 'doctorName', numeric: true, disablePadding: false, label: 'Doctor Name' },
-  { id: 'phone', numeric: true, disablePadding: false, label: 'Phone' },
-  { id: 'specialization', numeric: true, disablePadding: false, label: 'Specialization' },
-  { id: 'experience', numeric: true, disablePadding: false, label: 'Experience(in years)' },
-  { id: 'availability', numeric: true, disablePadding: false, label: 'Availability' },
+  { id: 'allotmentDate', numeric: true, disablePadding: false, label: 'Allotment Date' },
+  { id: 'dischargeDate', numeric: true, disablePadding: false, label: 'Discharge Date' },
+  { id: 'status', numeric: true, disablePadding: false, label: 'Status' },
 ];
 
 function EnhancedTableHead(props) {
@@ -152,7 +153,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Doctors
+          All Rooms
         </Typography>
       )}
         {numSelected > 0 ? (
@@ -212,14 +213,18 @@ export default function EnhancedTable() {
   const [alert, setAlert] = React.useState(false)
   const componentRef = React.useRef();
 
-  function createData(name, doctorName, phone, specialization, experience, availability) {
-    return { name, doctorName, phone, specialization, experience, availability };
+  function createData(roomNo, roomType, patientName, doctorName, allotmentDate, dischargeDate, status) {
+    return { roomNo, roomType, patientName, doctorName, allotmentDate, dischargeDate, status };
   }
   const rows = [
-    createData(1, 'Ahmed Ullah', '+88012458965', 'Medicine', 5, <Chip size='small' label="available" color='primary' />),
-    createData(2, 'Zahid Ullah', '+88012458965', 'Medicine', 6, <Chip size='small' label="unavailable" color='secondary' />),
-    createData(3, 'Shakir Ullah', '+88012458965', 'Medicine', 3, <Chip size='small' label="onleave" color='default' />),
+    createData('R01', 'General', 'Ahmed Ullah', 'Zakir Hossain', '10-20-20', '22-10-20', <Chip size='small' label="avaiable" color='primary' />),
+    createData('R02', 'AC', 'Ahmed Ullah', 'Zakir Hossain','10-20-20', '-', <Chip size='small' label="not discharged" color='secondary' />),
+    createData('R03', 'ICU', '-', '-','-', '-',  <Chip size='small' label="not allot" color='default' />),
   ];
+
+  const deleteHandler = (e) => {
+    console.log("api should be added for delete patient where id = " + selected[0])
+  }
 
   const printAction = useReactToPrint({
     content: () => componentRef.current
@@ -238,19 +243,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
+      const newSelecteds = rows.map((n) => n.roomNo);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, roomNo) => {
+    const selectedIndex = selected.indexOf(roomNo);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, roomNo);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -268,7 +273,6 @@ export default function EnhancedTable() {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
@@ -278,27 +282,27 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = (roomNo) => selected.indexOf(roomNo) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
-      <div className={classes.paper}>
+      <div>
         <div style={{display: 'flex', justifyContent: 'space-between', margin: 15}}>
             <div style={{flex: 0.9}}>
-              {alert ? <Alert onClose={() => {setAlert(!alert)}} severity="warning">Select a doctor please!</Alert> : null}
+              {alert ? <Alert onClose={() => {setAlert(!alert)}} severity="warning">Select a patient please!</Alert> : null}
             </div>
             <TextField
-            label="Search Doctor"
+            label="Search Patient"
             size="small"
             variant="outlined"
             onChange={(e) => setSearch(e.target.value)}
             />
         </div>
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer ref={componentRef}>
-          <Table
+        <TableContainer >
+          <Table ref={componentRef}
             className={classes.table}
             aria-labelledby="tableTitle"
             size={dense ? 'small' : 'medium'}
@@ -317,17 +321,17 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.roomNo);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, row.roomNo)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.roomNo}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
@@ -337,14 +341,14 @@ export default function EnhancedTable() {
                         />
                       </TableCell>
                       <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
+                        {row.roomNo}
                       </TableCell>
+                      <TableCell align="right">{row.roomType}</TableCell>
+                      <TableCell align="right">{row.patientName}</TableCell>
                       <TableCell align="right">{row.doctorName}</TableCell>
-                      <TableCell align="right">{row.phone}</TableCell>
-                      <TableCell align="right">{row.specialization}</TableCell>
-                      <TableCell align="right">{row.experience}</TableCell>
-                      <TableCell align="right">{row.availability}</TableCell>
-
+                      <TableCell align="right">{row.allotmentDate}</TableCell>
+                      <TableCell align="right">{row.dischargeDate}</TableCell>
+                      <TableCell align="right">{row.status}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -357,7 +361,7 @@ export default function EnhancedTable() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10, 25, 50]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
@@ -378,77 +382,28 @@ export default function EnhancedTable() {
       </ButtonGroup>
     </div>
     <div className="megatable__ActionButtons" style={{marginTop: 20}}>
-    {
-        selected.length != 0 ?
-      <Link to={`detailsDoctor/${selected[0]}`} style={{textDecoration: 'none'}}>
-          <Button
-            size={window.innerWidth < 768 ? 'small' : 'medium'}
-            variant="contained"
-            color="default"
-            startIcon={<AssignmentOutlined />}
-          >
-            Details
-          </Button>
-      </Link> : 
-       <Button
-         size={window.innerWidth < 768 ? 'small' : 'medium'}
-         onClick={handleAlert}
-         variant="contained"
-         color="default"
-         startIcon={<AssignmentOutlined />}
-         >
-         Details
-     </Button>
-      }
       {
         selected.length != 0 ?
-          <Link to={`editDoctor/${selected[0]}`} style={{textDecoration: 'none'}}>
+          <Link to={`editRoomAllotment/${selected[0]}`} style={{textDecoration: 'none'}}>
             <Button
               size={window.innerWidth < 768 ? 'small' : 'medium'}
-              style={{marginLeft: 10}}
               variant="contained"
               color="primary"
               startIcon={<Edit />}
             >
-              Edit
+              Edit Allotment
             </Button>
           </Link> : 
             <Button
               size={window.innerWidth < 768 ? 'small' : 'medium'}
               onClick={handleAlert}
-              style={{marginLeft: 10}}
               variant="contained"
               color="primary"
               startIcon={<Edit />}
               >
-              Edit
+              Edit Allotment
           </Button>
       }
-      {
-      selected.length != 0 ?
-        <Link to={`deleteDoctor/${selected[0]}`} style={{textDecoration: 'none'}}>
-          <Button
-            size={window.innerWidth < 768 ? 'small' : 'medium'}
-            style={{marginLeft: 10}}
-            variant="contained"
-            color="secondary"
-            startIcon={<DeleteOutlined />}
-          >
-            Delete
-          </Button>
-        </Link> : 
-        <Button
-            size={window.innerWidth < 768 ? 'small' : 'medium'}
-            onClick={handleAlert}
-            style={{marginLeft: 10}}
-            variant="contained"
-            color="secondary"
-            startIcon={<DeleteOutlined />}
-            >
-            Delete
-        </Button>
-    }
-
     </div>
     </div>
   );

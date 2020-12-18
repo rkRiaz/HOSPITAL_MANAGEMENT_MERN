@@ -1,0 +1,37 @@
+.editAppoinment{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.editAppoinment__body{
+    margin: 20px;
+    padding: 20px;
+}
+.editAppoinment__bodyFormFirstRow{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+@media screen and (max-width: 768px){
+    .editAppoinment__bodyFormFirstRow{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    
+}
+.editAppoinment__bodyFormFirstRowLeft,
+.editAppoinment__bodyFormFirstRowRight
+{   
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.editAppoinment__bodyFormSecondRow{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+}
+.editAppoinment__bodyFormSecondRowCheckBox{
+    margin-top: 20px;
+}

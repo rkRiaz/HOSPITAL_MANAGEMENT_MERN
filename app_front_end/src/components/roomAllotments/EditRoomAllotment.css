@@ -1,0 +1,32 @@
+.editRoomAllotment{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.editRoomAllotment__body{
+    margin: 20px;
+    padding: 20px;
+}
+.editRoomAllotment__bodyFormFirstRow{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+@media screen and (max-width: 768px){
+    .editRoomAllotment__bodyFormFirstRow{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    
+}
+.editRoomAllotment__bodyFormFirstRowLeft,
+.editRoomAllotment__bodyFormFirstRowRight
+{   
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.editRoomAllotment__bodyFormSecondRowCheckBox{
+    margin-top: 20px;
+}

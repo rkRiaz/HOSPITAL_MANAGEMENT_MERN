@@ -152,7 +152,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Doctors
+          Patients
         </Typography>
       )}
         {numSelected > 0 ? (
@@ -375,7 +375,7 @@ export default function EnhancedTable() {
         label="Dense padding"
       />
     <div className="megatable__print">
-      <ButtonGroup style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
+      <ButtonGroup size={window.innerWidth < 768 ? 'small' : 'medium'} style={{marginTop: 20}} color="default" aria-label="outlined primary button group">
           <Button onClick={printAction}><PrintOutlined/>&nbsp;PRINT</Button>
           <Button><PictureAsPdfOutlined/>&nbsp;PDF</Button>
           <Button><GetAppOutlined/>&nbsp;CSV</Button>
@@ -386,6 +386,7 @@ export default function EnhancedTable() {
         selected.length != 0 ?
       <Link to={`detailsPatient/${selected[0]}`} style={{textDecoration: 'none'}}>
           <Button
+            size={window.innerWidth < 768 ? 'small' : 'medium'}
             variant="contained"
             color="default"
             startIcon={<AssignmentOutlined />}
@@ -394,6 +395,7 @@ export default function EnhancedTable() {
           </Button>
       </Link> : 
        <Button
+         size={window.innerWidth < 768 ? 'small' : 'medium'}
          onClick={handleAlert}
          variant="contained"
          color="default"
@@ -406,6 +408,7 @@ export default function EnhancedTable() {
         selected.length != 0 ?
           <Link to={`editPatient/${selected[0]}`} style={{textDecoration: 'none'}}>
             <Button
+              size={window.innerWidth < 768 ? 'small' : 'medium'}
               style={{marginLeft: 10}}
               variant="contained"
               color="primary"
@@ -415,6 +418,7 @@ export default function EnhancedTable() {
             </Button>
           </Link> : 
             <Button
+              size={window.innerWidth < 768 ? 'small' : 'medium'}
               onClick={handleAlert}
               style={{marginLeft: 10}}
               variant="contained"
@@ -427,6 +431,7 @@ export default function EnhancedTable() {
       {
       selected.length != 0 ?
         <Button
+          size={window.innerWidth < 768 ? 'small' : 'medium'}
           onClick={deleteHandler}
           style={{marginLeft: 10}}
           variant="contained"
@@ -437,6 +442,7 @@ export default function EnhancedTable() {
         </Button>
         : 
         <Button
+            size={window.innerWidth < 768 ? 'small' : 'medium'}
             onClick={handleAlert}
             style={{marginLeft: 10}}
             variant="contained"
