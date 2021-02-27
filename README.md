@@ -1,0 +1,5 @@
+# HOSPITAL_MANAGEMENT_MERN
+
+FRONT_END
+*React
+*Material Ui
