@@ -1,0 +1,12 @@
+
+.app__body{
+    display: flex;
+    position: relative;
+}
+.app__bodyRight{
+    flex: 1;
+}
+
+
+
+

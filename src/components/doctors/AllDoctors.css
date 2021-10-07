@@ -1,0 +1,17 @@
+.allDoctors{
+    background: #edf1ef;
+    min-height: 100vh;
+
+}
+.allDoctors__body{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding: 20px;
+}
+.allDoctors__bodyTable{
+    overflow: scroll;
+}
+.allDoctors__bodyTable::-webkit-scrollbar{
+    display: none;
+}

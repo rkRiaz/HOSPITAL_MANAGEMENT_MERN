@@ -1,0 +1,16 @@
+.addRoom{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.addRoom__body{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding: 20px;
+}
+.addRoom__bodyFormFirstRow{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+}

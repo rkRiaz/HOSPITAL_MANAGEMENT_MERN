@@ -1,0 +1,16 @@
+.allrooms{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.allrooms__body{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding: 20px;
+}
+.allrooms__bodyTable{
+    overflow: scroll;
+}
+.allrooms__bodyTable::-webkit-scrollbar{
+    display: none;
+}

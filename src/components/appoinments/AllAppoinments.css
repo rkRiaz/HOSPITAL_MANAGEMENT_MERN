@@ -1,0 +1,16 @@
+.allAppoinments{
+    background: #edf1ef;
+    min-height: 100vh;
+}
+.allAppoinments__body{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding: 20px;
+}
+.allAppoinments__bodyTable{
+    overflow: scroll;
+}
+.allAppoinments__bodyTable::-webkit-scrollbar{
+    display: none;
+}
