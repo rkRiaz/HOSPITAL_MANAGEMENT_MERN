@@ -1,6 +1,6 @@
 import React from 'react';
 import "./App.css";
-import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import SideBar from './components/SideBar'
 import TopBar from './components/TopBar'
 import Dashboard from './components/Dashboard'
@@ -25,7 +25,6 @@ import AddRoom from './components/roomAllotments/AddRoom'
 import EditRoomAllotment from './components/roomAllotments/EditRoomAllotment'
 
 
-
 function App() {
   return (
     <div className="app">
@@ -34,7 +33,7 @@ function App() {
          <h1>Login</h1>
         :
         <div className="app__body">
-        <HashRouter>
+        <BrowserRouter>
               <SideBar/>
               <div className="app__bodyRight">
                 <TopBar/>
@@ -63,7 +62,7 @@ function App() {
 
                 </Switch>
               </div>
-          </HashRouter>
+          </BrowserRouter>
       </div> 
       }
     </div>
