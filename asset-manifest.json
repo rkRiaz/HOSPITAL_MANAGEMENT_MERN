@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/hospital/static/css/main.eba39b76.chunk.css",
-    "main.js": "/hospital/static/js/main.e83157c5.chunk.js",
-    "main.js.map": "/hospital/static/js/main.e83157c5.chunk.js.map",
-    "runtime-main.js": "/hospital/static/js/runtime-main.eda2ec02.js",
-    "runtime-main.js.map": "/hospital/static/js/runtime-main.eda2ec02.js.map",
-    "static/js/2.6afc6c21.chunk.js": "/hospital/static/js/2.6afc6c21.chunk.js",
-    "static/js/2.6afc6c21.chunk.js.map": "/hospital/static/js/2.6afc6c21.chunk.js.map",
-    "index.html": "/hospital/index.html",
-    "precache-manifest.d1c2dee419eb9664992e64094a71d31f.js": "/hospital/precache-manifest.d1c2dee419eb9664992e64094a71d31f.js",
-    "service-worker.js": "/hospital/service-worker.js",
-    "static/css/main.eba39b76.chunk.css.map": "/hospital/static/css/main.eba39b76.chunk.css.map",
-    "static/js/2.6afc6c21.chunk.js.LICENSE.txt": "/hospital/static/js/2.6afc6c21.chunk.js.LICENSE.txt"
+    "main.css": "/HOSPITAL_MANAGEMENT_MERN/static/css/main.eba39b76.chunk.css",
+    "main.js": "/HOSPITAL_MANAGEMENT_MERN/static/js/main.fea27129.chunk.js",
+    "main.js.map": "/HOSPITAL_MANAGEMENT_MERN/static/js/main.fea27129.chunk.js.map",
+    "runtime-main.js": "/HOSPITAL_MANAGEMENT_MERN/static/js/runtime-main.3864651c.js",
+    "runtime-main.js.map": "/HOSPITAL_MANAGEMENT_MERN/static/js/runtime-main.3864651c.js.map",
+    "static/js/2.41a9fe37.chunk.js": "/HOSPITAL_MANAGEMENT_MERN/static/js/2.41a9fe37.chunk.js",
+    "static/js/2.41a9fe37.chunk.js.map": "/HOSPITAL_MANAGEMENT_MERN/static/js/2.41a9fe37.chunk.js.map",
+    "index.html": "/HOSPITAL_MANAGEMENT_MERN/index.html",
+    "precache-manifest.a8df6ab6de44fabb01161a71d4ffac92.js": "/HOSPITAL_MANAGEMENT_MERN/precache-manifest.a8df6ab6de44fabb01161a71d4ffac92.js",
+    "service-worker.js": "/HOSPITAL_MANAGEMENT_MERN/service-worker.js",
+    "static/css/main.eba39b76.chunk.css.map": "/HOSPITAL_MANAGEMENT_MERN/static/css/main.eba39b76.chunk.css.map",
+    "static/js/2.41a9fe37.chunk.js.LICENSE.txt": "/HOSPITAL_MANAGEMENT_MERN/static/js/2.41a9fe37.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.eda2ec02.js",
-    "static/js/2.6afc6c21.chunk.js",
+    "static/js/runtime-main.3864651c.js",
+    "static/js/2.41a9fe37.chunk.js",
     "static/css/main.eba39b76.chunk.css",
-    "static/js/main.e83157c5.chunk.js"
+    "static/js/main.fea27129.chunk.js"
   ]
 }
